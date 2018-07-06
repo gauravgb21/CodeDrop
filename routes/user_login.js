@@ -15,7 +15,13 @@ router.use(function(req,res){
   		  if(results[0].password==password)
   		  {
   		  	//authentication sucessfull
-  		  	res.redirect('/');
+          var user={
+            name:results[0].name,
+            username:results[0].username
+          }
+          res.locals.user=user;
+  		  	res.render('dashboard');
+          //console.log(res.user);
   		  }
   		  else
   		  {

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Editor</title>
+  <style type="text/css" media="screen">
+    body {
+        overflow: hidden;
+    }
+    #editor {
+        margin: 0;
+        position: absolute;
+        top: 12%;
+        bottom: 10%;
+        left: 0.3%;
+        right: 40%;
+    }
+  </style>
+</head>
+<body>
+<div class="w3-col m4" style="margin-top: 1.3%;margin-left: 0.3%;">
+<select style="width: 30%;border-radius:3px;height:30px;">
+<option value="twilight">Twilight</option>
+<option value="terminal">Terminal</option>
+<option value="solarized_dark">Solarized Dark</option>
+<option value="chrome">Chrome</option>
+<option value="clouds">Clouds</option>
+<option value="clouds_midnight">Clouds Midnight</option>
+<option value="cobalt">Cobalt</option>
+<option value="crimson_editor">Crimson Editor</option>
+<option value="dawn">Dawn</option>
+<option value="eclipse">Eclipse</option>
+<option value="idle_fingers">Idle Fingers</option>
+<option value="kr_theme">Kr Theme</option>
+<option value="merbivore">Merbivore</option>
+<option value="merbivore_soft">Merbivore Soft</option>
+<option value="mono_industrial">Mono Industrial</option>
+<option value="monokai">Monokai</option>
+<option value="pastel_on_dark">Pastel On Dark</option>
+<option value="textmate">TextMate</option>
+<option value="tomorrow">Tomorrow</option>
+<option value="vibrant_ink">Vibrant Ink</option>
+
+</select>
+<select style="width: 30%;border-radius:3px;height:30px;">
+  <option value="c_cpp">C</option>
+  <option value="c_cpp">C++</option>
+  <option value="java">Java</option>
+  <option value="python">Python</option>
+</select>
+</div>
+<pre id="editor">function foo(items) {
+    var i;
+    for (i = 0; i &lt; items.length; i++) {
+        alert("Ace Rocks " + items[i]);
+    }
+}</pre>
+
+<script src="/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/ace_config.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>
