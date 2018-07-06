@@ -1,5 +1,6 @@
 var express = require('express');
 var router  = express.Router();
+var db      = require('../mysql_database/db');
 
 //store user data in database
 
@@ -24,7 +25,19 @@ router.use(function(req,res){
   }
   else
   {
-  	console.log("GOTCHAAAA!!");
+    var user={
+     name:name,
+     username:username,
+     password:password1
+    };
+    db.query('INSERT INTO users SET ?',user,function(error,results,fields){
+      if(error)
+        throw error;
+      else
+      {
+        console.log("NEW RECORD ADDED!");
+      }
+    });
   	res.redirect('/');
   }
 });

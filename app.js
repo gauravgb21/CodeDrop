@@ -8,22 +8,8 @@ var flash            = require('connect-flash');
 var session          = require('express-session');
 var Handlebars       = require('handlebars');
 var HandlebarsIntl   = require('handlebars-intl');
-var mysql            = require('mysql');
 var PORT             = 8082;
-
-//connection to database
-
-var con = mysql.createConnection({
-   host:'localhost',
-   user:'root',
-   password:'password'
-});
-
-con.connect(function(err){
-   if(err)
-   	throw err;
-   console.log("connected to database");
-});
+var db               = require('./mysql_database/db');
 
 // Init app
 var app = express();
@@ -33,6 +19,7 @@ var app = express();
 var login          = require('./routes/login');
 var register       = require('./routes/register');
 var user_registers = require('./routes/user_registers');
+var user_login     = require('./routes/user_login');
 //view Engine
 HandlebarsIntl.registerWith(Handlebars);
 app.set('views',path.join(__dirname,'views'));
@@ -92,6 +79,7 @@ next();
 app.use('/',login);
 app.use('/register',register);
 app.use('/users_register',user_registers);
+app.use('/users_login',user_login);
 //connect app 
 
 app.listen(PORT,function(){

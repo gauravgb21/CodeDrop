@@ -1,10 +1,18 @@
  <div class="user">
+ {{#if errors}}
+     {{#each errors}}
+     <div class="w3-container w3-section w3-red">
+<span onclick="this.parentElement.style.display='none'" class="w3-closebtn">&times;</span>
+  {{msg}}
+</div>
+     {{/each}}
+{{/if}}
     <header class="user__header">
         <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
         <h3 class="user__title">Code Drop</h3>
     </header>
     
-    <form class="form" method="post" action="/users/login" >
+    <form class="form" method="post" action="/users_login" >
         <div class="form__group">
             <input type="text" placeholder="Username" class="form__input" name="username" />
         </div>
