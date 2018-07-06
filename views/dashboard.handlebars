@@ -20,7 +20,7 @@
 </head>
 <body>
 <div class="w3-col m4" style="margin-top: 1.3%;margin-left: 0.3%;">
-<select style="width: 30%;border-radius:3px;height:30px;">
+<select id="theme_s" style="width: 30%;border-radius:3px;height:30px;">
 <option value="twilight">Twilight</option>
 <option value="terminal">Terminal</option>
 <option value="solarized_dark">Solarized Dark</option>
@@ -43,12 +43,22 @@
 <option value="vibrant_ink">Vibrant Ink</option>
 
 </select>
-<select style="width: 30%;border-radius:3px;height:30px;">
+<select id="lang_s" style="width: 30%;border-radius:3px;height:30px;">
   <option value="c_cpp">C</option>
   <option value="c_cpp">C++</option>
   <option value="java">Java</option>
   <option value="python">Python</option>
 </select>
+</div>
+<div  style="margin-top: 2.5%;margin-left: 62%;height: 400px;">
+ <p><strong>Enter Input</strong></p>
+  <textarea rows="14" cols="51">
+    
+  </textarea>
+  <br>
+  <button class="w3-btn w3-blue w3-round">Compile and Run</button>
+  <button class="w3-btn w3-blue w3-round">Save Code</button>
+  <button class="w3-btn w3-blue w3-round">Download Code</button>
 </div>
 <pre id="editor">function foo(items) {
     var i;
@@ -56,9 +66,8 @@
         alert("Ace Rocks " + items[i]);
     }
 }</pre>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 <script src="/js/ace_config.js" type="text/javascript" charset="utf-8"></script>
-
 </body>
 </html>

@@ -20,6 +20,7 @@ var login          = require('./routes/login');
 var register       = require('./routes/register');
 var user_registers = require('./routes/user_registers');
 var user_login     = require('./routes/user_login');
+var dashboard      = require('./routes/dashboard');
 //view Engine
 HandlebarsIntl.registerWith(Handlebars);
 app.set('views',path.join(__dirname,'views'));
@@ -80,6 +81,7 @@ app.use('/',login);
 app.use('/register',register);
 app.use('/users_register',user_registers);
 app.use('/users_login',user_login);
+app.use('/dashboard',dashboard);
 //connect app 
 
 app.listen(PORT,function(){
