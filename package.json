@@ -19,10 +19,11 @@
     "express-messages": "*",
     "express-session": "*",
     "express-validator": "*",
+    "fs": "0.0.1-security",
     "handlebars-intl": "^1.1.2",
     "mysql": "^2.15.0",
-    "passport": "*",
-    "passport-http": "*",
-    "passport-local": "*"
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0",
+    "passport-local": "^1.0.0"
   }
 }

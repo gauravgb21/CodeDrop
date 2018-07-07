@@ -52,20 +52,17 @@
 </div>
 <div  style="margin-top: 2.5%;margin-left: 62%;height: 400px;">
  <p><strong>Enter Input</strong></p>
-  <textarea rows="14" cols="51">
+  <textarea id="txtar" rows="14" cols="51" style="resize: none;">
     
   </textarea>
   <br>
-  <button class="w3-btn w3-blue w3-round">Compile and Run</button>
+  <button class="w3-btn w3-blue w3-round" onclick="post()">Compile and Run</button>
   <button class="w3-btn w3-blue w3-round">Save Code</button>
   <button class="w3-btn w3-blue w3-round">Download Code</button>
 </div>
-<pre id="editor">function foo(items) {
-    var i;
-    for (i = 0; i &lt; items.length; i++) {
-        alert("Ace Rocks " + items[i]);
-    }
-}</pre>
+<pre id="editor">
+ //Start writing code from here.
+</pre>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 <script src="/js/ace_config.js" type="text/javascript" charset="utf-8"></script>

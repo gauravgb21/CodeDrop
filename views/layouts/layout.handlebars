@@ -23,12 +23,14 @@
     <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
       <i class="fa fa-bars"></i>
     </a>
+    <a href="/users/logout" class="w3-bar-item w3-hover-black w3-button  w3-hide-small " style="margin-left: 45%;"><strong>CODE DROP</strong></a>
     {{#if user}}
-    <a href="/users/logout" class="w3-bar-item w3-button w3-hide-small w3-right"><i class="fa fa-sign-out"></i><strong> Logout</strong></a>
-    <a href="/dashboard" class="w3-bar-item w3-button w3-right" style="cursor: pointer;"><i class="fa fa-home"></i><strong> New Code</strong></a>
+    <a href="/dashboard" class="w3-bar-item w3-button  w3-hover-black" style="cursor: pointer;margin-left: 20%;"><i class="fa fa-home"></i><strong> New Code</strong></a>
+    <a href=" " class="w3-bar-item w3-button w3-hide-small w3-hover-black " ><i class="fa fa-list"></i><strong> My Codes</strong></a>
+    <a href="/logout" class="w3-bar-item w3-button w3-hover-black w3-hide-small"><i class="fa fa-sign-out"></i><strong> Logout</strong></a>
     {{else}}
-    <a href="/register" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user-plus"></i> Register</a>
-    <a href="/" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-in"></i> Login</a>
+    <a href="/" class="w3-bar-item w3-button w3-hover-black w3-hide-small" style="margin-left: 30%;"><i class="fa fa-sign-in"></i><strong> Login</strong></a>
+    <a href="/register" class="w3-bar-item w3-button w3-hover-black w3-hide-small"><i class="fa fa-user-plus"></i><strong> Register</strong></a>
     {{/if}}
   </div>
   </div>

@@ -10,6 +10,8 @@ var Handlebars       = require('handlebars');
 var HandlebarsIntl   = require('handlebars-intl');
 var PORT             = 8082;
 var db               = require('./mysql_database/db');
+var passport         = require('passport');
+var passportConfig   = require('./routes/passport.js');
 
 // Init app
 var app = express();
@@ -21,6 +23,8 @@ var register       = require('./routes/register');
 var user_registers = require('./routes/user_registers');
 var user_login     = require('./routes/user_login');
 var dashboard      = require('./routes/dashboard');
+var logout         = require('./routes/logout')
+var compile        = require('./routes/compile');
 //view Engine
 HandlebarsIntl.registerWith(Handlebars);
 app.set('views',path.join(__dirname,'views'));
@@ -31,6 +35,8 @@ app.set('view engine','handlebars');
 //bodyParser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
+
+passportConfig(passport);
 
 //static folders
 app.use(express.static(path.join(__dirname,'public')));
@@ -43,6 +49,10 @@ app.use(session({
  saveUninitialized: true,
  resave: true
 }));
+
+//passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Express Validators
 app.use(expressValidator({
@@ -82,6 +92,8 @@ app.use('/register',register);
 app.use('/users_register',user_registers);
 app.use('/users_login',user_login);
 app.use('/dashboard',dashboard);
+app.use('/logout',logout);
+app.use('/compile',compile);
 //connect app 
 
 app.listen(PORT,function(){
