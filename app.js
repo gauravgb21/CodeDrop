@@ -25,6 +25,7 @@ var user_login     = require('./routes/user_login');
 var dashboard      = require('./routes/dashboard');
 var logout         = require('./routes/logout')
 var compile        = require('./routes/compile');
+var getOutput      = require('./routes/getOutput');
 //view Engine
 HandlebarsIntl.registerWith(Handlebars);
 app.set('views',path.join(__dirname,'views'));
@@ -94,6 +95,7 @@ app.use('/users_login',user_login);
 app.use('/dashboard',dashboard);
 app.use('/logout',logout);
 app.use('/compile',compile);
+app.use('/getOutput',getOutput);
 //connect app 
 
 app.listen(PORT,function(){

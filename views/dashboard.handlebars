@@ -11,15 +11,31 @@
     #editor {
         margin: 0;
         position: absolute;
-        top: 12%;
-        bottom: 10%;
+        top: 12.5%;
+        bottom: 4%;
         left: 0.3%;
         right: 40%;
     }
+    .grid-container {
+        margin-top: 2%;
+        display: grid;
+        width:420px;
+        grid-template-columns: auto auto auto;
+        background-color: #e9ebee;
+    }
+    .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgb(200, 202, 206);
+        padding: 1px;
+        font-size: 17px;
+        text-align: center;
+        font-weight: bold;
+    }
+
   </style>
 </head>
 <body>
-<div class="w3-col m4" style="margin-top: 1.3%;margin-left: 0.3%;">
+<div class="w3-col m4" style="margin-top: 1.7%;margin-left: 0.3%;">
 <select id="theme_s" style="width: 30%;border-radius:3px;height:30px;">
 <option value="twilight">Twilight</option>
 <option value="terminal">Terminal</option>
@@ -44,27 +60,45 @@
 
 </select>
 <select id="lang_s" style="width: 30%;border-radius:3px;height:30px;">
-  <option value="c_cpp">C</option>
-  <option value="c_cpp">C++</option>
-  <option value="java">Java</option>
-  <option value="python">Python</option>
+  <option value="C">C</option>
+  <option value="C++">C++</option>
+  <option value="Java">Java</option>
+  <option value="Python">Python</option>
 </select>
 </div>
-<div  style="margin-top: 2.5%;margin-left: 62%;height: 400px;">
- <p><strong>Enter Input</strong></p>
-  <textarea id="txtar" rows="14" cols="51" style="resize: none;">
+<div id="statusdiv"  style="margin-top: 2.5%;margin-left: 62%;height: 600px;">
+ <p><strong>Custom Input</strong></p>
+  <textarea id="txtar" rows="10" cols="55" style="resize: none;">
     
   </textarea>
+  <br>
+  <p><strong>Output</strong></p>
+  <div  style="background-color: black;color:white;width: 420px;height: 200px;overflow-y: scroll;overflow-x: scroll; padding: 3px;font-weight: bold;">
+    <pre id="output">
+      
+    </pre>
+  </div>
   <br>
   <button class="w3-btn w3-blue w3-round" onclick="post()">Compile and Run</button>
   <button class="w3-btn w3-blue w3-round">Save Code</button>
   <button class="w3-btn w3-blue w3-round">Download Code</button>
+  <br>
+  <div class="grid-container">
+  <div class="grid-item">Verdict</div>
+  <div class="grid-item">Time</div>
+  <div class="grid-item">Memory</div>  
+  <div class="grid-item" id="ver">.</div>
+  <div class="grid-item" id="tim">.</div>
+  <div class="grid-item" id="mem">.</div>  
+</div>
+
 </div>
 <pre id="editor">
  //Start writing code from here.
 </pre>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="/src-noconflict/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
 <script src="/js/ace_config.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
