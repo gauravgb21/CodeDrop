@@ -17,6 +17,15 @@ var passportConfig   = require('./routes/passport.js');
 var app = express();
 
 
+Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+  if(v1 === v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
+
+
+
 //routes
 var login          = require('./routes/login');
 var register       = require('./routes/register');
@@ -26,6 +35,7 @@ var dashboard      = require('./routes/dashboard');
 var logout         = require('./routes/logout')
 var compile        = require('./routes/compile');
 var getOutput      = require('./routes/getOutput');
+var mycodes        = require('./routes/mycodes');
 //view Engine
 HandlebarsIntl.registerWith(Handlebars);
 app.set('views',path.join(__dirname,'views'));
@@ -96,6 +106,7 @@ app.use('/dashboard',dashboard);
 app.use('/logout',logout);
 app.use('/compile',compile);
 app.use('/getOutput',getOutput);
+app.use('/mycodes',mycodes);
 //connect app 
 
 app.listen(PORT,function(){

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  background-color: #e9ebee;
+  padding: 3px;
+  margin-top: 1%;
+}
+.grid-item {
+  background-color: #def;
+  border: 1px solid rgb(200, 202, 206);
+  padding: 8px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<div class="grid-container">
+  <div class="grid-item">#</div>
+  <div class="grid-item">When</div>
+  <div class="grid-item">Lang</div>  
+  <div class="grid-item">Verdict</div>
+  <div class="grid-item">Time</div>
+  <div class="grid-item">Memory</div>  
+
+{{#if strcodes}}
+    {{#each strcodes}}
+    <div class="grid-item" style="font-weight: lighter;"><a href="" style="color: blue;">{{this.id}}</a></div>
+    <div class="grid-item" style="font-weight: normal;">{{this.creation}}</div>
+    <div class="grid-item">{{this.lang}}</div>
+    {{#ifCond this.verdict "Accepted"}}
+      <div class="grid-item" style="color: green;">{{this.verdict}}</div>  
+    {{else}}
+     <div class="grid-item" style="color: red;">{{this.verdict}}</div>
+    {{/ifCond}}
+    <div class="grid-item" style="font-weight: normal;">{{this.execution_time}} ms</div>
+    <div class="grid-item" style="font-weight: normal;">{{this.memory}} KB</div>
+    {{/each}}
+{{else}}
+    <p><em>You haven't made any submissions yet.</em></p>
+{{/if}}
+</div>
+</body>
+</html>
