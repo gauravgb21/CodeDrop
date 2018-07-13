@@ -2,6 +2,6 @@
 using namespace std;
 int main()
 {
-    cout<<"bhenchoddd"<<'\n';
+    cout<<"mandir wahi banega!"<<'\n';
     return 0;
 }

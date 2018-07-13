@@ -7,12 +7,14 @@
   grid-template-columns: auto auto auto auto auto auto;
   background-color: #e9ebee;
   padding: 3px;
+  width:1200px;
   margin-top: 1%;
+  margin-left: 5.5%;
 }
 .grid-item {
   background-color: #def;
   border: 1px solid rgb(200, 202, 206);
-  padding: 8px;
+  padding: 5px;
   font-size: 14px;
   text-align: center;
   font-weight: bold;
@@ -21,7 +23,7 @@
 </head>
 <body>
 
-<div class="grid-container">
+<div class="grid-container ">
   <div class="grid-item">#</div>
   <div class="grid-item">When</div>
   <div class="grid-item">Lang</div>  
@@ -31,7 +33,7 @@
 
 {{#if strcodes}}
     {{#each strcodes}}
-    <div class="grid-item" style="font-weight: lighter;"><a href="" style="color: blue;">{{this.id}}</a></div>
+    <div class="grid-item" style="font-weight: lighter;"><a  onclick="document.getElementById({{this.id}}).style.display='block'"  style="color: blue;text-decoration: underline;cursor: pointer;">{{this.id}}</a></div>
     <div class="grid-item" style="font-weight: normal;">{{this.creation}}</div>
     <div class="grid-item">{{this.lang}}</div>
     {{#ifCond this.verdict "Accepted"}}
@@ -41,6 +43,22 @@
     {{/ifCond}}
     <div class="grid-item" style="font-weight: normal;">{{this.execution_time}} ms</div>
     <div class="grid-item" style="font-weight: normal;">{{this.memory}} KB</div>
+    <div id={{this.id}} class="w3-modal">
+    <div class="w3-modal-content w3-card-4" style="background-color: #074b83;">
+      <header class="w3-container" style="background-color: #074b83;"> 
+        <span style="height: 6.5%;margin-top: 0%;" onclick="document.getElementById({{this.id}}).style.display='none'" class="w3-button w3-small w3-display-topright">&times;</span>
+        <p style="color: white;margin-left: 45%;"><strong>CODE ID:{{this.id}}</strong></p>
+      </header>
+      <div class="w3-container">
+        <pre style="height: 300px;overflow:scroll;background-color: black;color:white;">
+        {{this.code}}
+        </pre>
+      </div>
+      <footer class="w3-container">
+        <p style="color: white;margin-left: 41%;"><strong>{{this.username}} submission</strong></p> 
+      </footer>
+      </div>
+    </div>
     {{/each}}
 {{else}}
     <p><em>You haven't made any submissions yet.</em></p>
