@@ -123,13 +123,13 @@ else if(lang=="Python")
 
     fs.writeFileSync('../CodeDrop/codes/testpy.py',code.toString());
     fs.writeFileSync('../CodeDrop/codes/input.txt',input.toString());
-    var reqpath = path.join(__dirname,'../');
-    var newpath = reqpath;
-    reqpath     = path.join(reqpath,'/codes/');
-    var command = "python "+reqpath+"testpy.py < ./codes/input.txt";
-    var start    = performance.now();
-    var child   = sh.spawnSync(command,{shell: true});
-    var end      = performance.now();
+    var reqpath    = path.join(__dirname,'../');
+    var newpath    = reqpath;
+    reqpath        = path.join(reqpath,'/codes/');
+    var command    = "python "+reqpath+"testpy.py < ./codes/input.txt";
+    var start      = performance.now();
+    var child      = sh.spawnSync(command,{shell: true});
+    var end        = performance.now();
     execution_time = (end-start);
     if(child.stderr.toString().length!=0)
       op = child.output[2].toString();
@@ -204,7 +204,7 @@ var compilation={
 	lang:lang,
   verdict:verdict,
 	execution_time:execution_time,
-	memory:23,
+	memory:0,
 	output:op
 };
   
