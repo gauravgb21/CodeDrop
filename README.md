@@ -30,4 +30,4 @@ Tools/Technologies: HTML , CSS , Javascript , jquery , AJAX , Node js , MySql.
 ![alt text](https://github.com/gauravgb21/CodeDrop/blob/master/screenshots/Screenshot%20(103).png)
 
 # New features to be added
-Support for more languages , storage resource computaion for a program.
+Support for more languages , storage resource computation for a program.
