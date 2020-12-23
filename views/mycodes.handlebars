@@ -1,62 +1,46 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
-  background-color: #e9ebee;
-  padding: 3px;
-  width:1200px;
-  margin-top: 1%;
-  margin-left: 5.5%;
-}
-.grid-item {
-  background-color: #def;
-  border: 1px solid rgb(200, 202, 206);
-  padding: 5px;
-  font-size: 14px;
-  text-align: center;
-  font-weight: bold;
-}
-</style>
-</head>
 <body>
-
-<div class="grid-container ">
-  <div class="grid-item">#</div>
-  <div class="grid-item">When</div>
-  <div class="grid-item">Lang</div>  
-  <div class="grid-item">Verdict</div>
-  <div class="grid-item">Time</div>
-  <div class="grid-item">Memory</div>  
+  <nav class="nav-bar" id="myNavbar">
+    <span class="nav-bar__app-icon">CodeDrop</span>
+    <span class="nav-bar__nav-icons-cont">
+      {{#if user}}
+          <a href="/dashboard" class="nav-bar__nav-icon">New Code</a>
+          <a href="/mycodes" class="nav-bar__nav-icon--clicked">My Codes</a>
+          <a href="/logout" class="nav-bar__nav-icon" >Logout</a>
+      {{/if}}
+    </span>
+</nav>
+<div class="grid-container-compilation ">
+  <div class="grid-header-compilation">#</div>
+  <div class="grid-header-compilation">When</div>
+  <div class="grid-header-compilation">Lang</div>  
+  <div class="grid-header-compilation">Verdict</div>
+  <div class="grid-header-compilation">Time</div>
+  <div class="grid-header-compilation">Memory</div>  
 
 {{#if strcodes}}
     {{#each strcodes}}
-    <div class="grid-item" style="font-weight: lighter;"><a  onclick="document.getElementById({{this.id}}).style.display='block'"  style="color: blue;text-decoration: underline;cursor: pointer;">{{this.id}}</a></div>
-    <div class="grid-item" style="font-weight: normal;">{{this.creation}}</div>
-    <div class="grid-item">{{this.lang}}</div>
+    <div class="grid-item-compilation" style="font-weight: lighter;"><a  onclick="document.getElementById({{this.id}}).style.display='block'"  style="color: blue;text-decoration: underline;cursor: pointer;">{{this.id}}</a></div>
+    <div class="grid-item-compilation" style="font-weight: normal;">{{this.creation}}</div>
+    <div class="grid-item-compilation">{{this.lang}}</div>
     {{#ifCond this.verdict "Accepted"}}
-      <div class="grid-item" style="color: green;">{{this.verdict}}</div>  
+      <div class="grid-item-compilation" style="color: green;">{{this.verdict}}</div>  
     {{else}}
-     <div class="grid-item" style="color: red;">{{this.verdict}}</div>
+     <div class="grid-item-compilation" style="color: red;">{{this.verdict}}</div>
     {{/ifCond}}
-    <div class="grid-item" style="font-weight: normal;">{{this.execution_time}} ms</div>
-    <div class="grid-item" style="font-weight: normal;">0 KB</div>
+    <div class="grid-item-compilation" style="font-weight: normal;">{{this.execution_time}} ms</div>
+    <div class="grid-item-compilation" style="font-weight: normal;">0 KB</div>
     <div id={{this.id}} class="w3-modal">
-    <div class="w3-modal-content w3-card-4" style="background-color: #074b83;">
-      <header class="w3-container" style="background-color: #074b83;"> 
-        <span style="height: 6.5%;margin-top: 0%;" onclick="document.getElementById({{this.id}}).style.display='none'" class="w3-button w3-small w3-display-topright">&times;</span>
-        <p style="color: white;margin-left: 45%;"><strong>CODE ID:{{this.id}}</strong></p>
-      </header>
-      <div class="w3-container">
-        <pre style="height: 300px;overflow:scroll;background-color: black;color:white;">
-        {{this.code}}
-        </pre>
-      </div>
-      <footer class="w3-container">
-        <p style="color: white;margin-left: 41%;"><strong>{{this.username}} submission</strong></p> 
-      </footer>
+      <div class="submission-modal">
+        <header class="submission-modal__header"> 
+          <span onclick="document.getElementById({{this.id}}).style.display='none'" class="submission-modal__header__close-icon">&times;</span>
+          <span class="submission-modal__header__text">CODE ID:{{this.id}}</span>
+        </header>
+        <div class="submission-modal__body">
+          <pre style="font-weight:600;height: 300px;overflow:auto;background-color: #fff;color:#333;">{{this.code}}</pre>
+        </div>
+        <footer class="submission-modal__footer">
+          <span class="submission-modal__footer__text">{{this.username}}'s submission</span> 
+        </footer>
       </div>
     </div>
     {{/each}}
@@ -65,4 +49,3 @@
 {{/if}}
 </div>
 </body>
-</html>

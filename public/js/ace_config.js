@@ -9,7 +9,7 @@ $(document).ready(function(){
  ace.require('ace/ext/language_tools');
  var editor = ace.edit("editor");
  document.getElementById("txtar").value=""; 
- editor.setTheme("ace/theme/twilight");
+ editor.setTheme("ace/theme/solarized_dark");
  editor.session.setMode("ace/mode/c_cpp");
  editor.setFontSize(14);
  editor.setOptions({
@@ -44,6 +44,8 @@ function post() {
   var ver     = document.getElementById("ver");
   var tim     = document.getElementById("tim");
   var mem     = document.getElementById("mem");
+  const loadMaskId = document.querySelector('#loadmask');
+  loadMaskId.style.display = 'block';
   //AJAX request to server
   $.ajax({
       url: '/compile',
@@ -59,7 +61,8 @@ function post() {
          output.innerHTML=obj.output;
          ver.innerHTML=obj.verdict;
          tim.innerHTML=obj.time+" ms";
-         mem.innerHTML=obj.memory+" KB";     
+         mem.innerHTML=obj.memory+" KB";
+         loadMaskId.style.display = 'none';     
      }); 
   
 }

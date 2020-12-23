@@ -1,104 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Editor</title>
-  <style type="text/css" media="screen">
-    body {
-        overflow: hidden;
-    }
-    #editor {
-        margin: 0;
-        position: absolute;
-        top: 12.5%;
-        bottom: 4%;
-        left: 0.3%;
-        right: 40%;
-    }
-    .grid-container {
-        margin-top: 2%;
-        display: grid;
-        width:420px;
-        grid-template-columns: auto auto auto;
-        background-color: #e9ebee;
-    }
-    .grid-item {
-        background-color: rgba(255, 255, 255, 0.8);
-        border: 1px solid rgb(200, 202, 206);
-        padding: 1px;
-        font-size: 17px;
-        text-align: center;
-        font-weight: bold;
-    }
-
-  </style>
-</head>
 <body>
-<div class="w3-col m4" style="margin-top: 1.7%;margin-left: 0.3%;">
-<select id="theme_s" style="width: 30%;border-radius:3px;height:30px;">
-<option value="twilight">Twilight</option>
-<option value="terminal">Terminal</option>
-<option value="solarized_dark">Solarized Dark</option>
-<option value="chrome">Chrome</option>
-<option value="clouds">Clouds</option>
-<option value="clouds_midnight">Clouds Midnight</option>
-<option value="cobalt">Cobalt</option>
-<option value="crimson_editor">Crimson Editor</option>
-<option value="dawn">Dawn</option>
-<option value="eclipse">Eclipse</option>
-<option value="idle_fingers">Idle Fingers</option>
-<option value="kr_theme">Kr Theme</option>
-<option value="merbivore">Merbivore</option>
-<option value="merbivore_soft">Merbivore Soft</option>
-<option value="mono_industrial">Mono Industrial</option>
-<option value="monokai">Monokai</option>
-<option value="pastel_on_dark">Pastel On Dark</option>
-<option value="textmate">TextMate</option>
-<option value="tomorrow">Tomorrow</option>
-<option value="vibrant_ink">Vibrant Ink</option>
-
-</select>
-<select id="lang_s" style="width: 30%;border-radius:3px;height:30px;">
-  <option value="C">C</option>
-  <option value="C++">C++</option>
-  <!-- <option value="Java">Java</option> -->
-  <option value="Python">Python</option>
-</select>
-</div>
-<div id="statusdiv"  style="margin-top: 2.5%;margin-left: 62%;height: 600px;">
- <p><strong>Custom Input</strong></p>
-  <textarea id="txtar" rows="10" cols="55" style="resize: none;">
-    
-  </textarea>
-  <br>
-  <p><strong>Output</strong></p>
-  <div  style="background-color: black;color:white;width: 420px;height: 200px;overflow-y: scroll;overflow-x: scroll; padding: 3px;font-weight: bold;">
-    <pre id="output">
-      
-    </pre>
+  <div class="loadmask" id="loadmask">
+    <div class="spinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
   </div>
-  <br>
-  <button class="w3-btn w3-blue w3-round" onclick="post()">Compile and Run</button>
-  <button class="w3-btn w3-blue w3-round">Save Code</button>
-  <button class="w3-btn w3-blue w3-round">Download Code</button>
-  <br>
-  <div class="grid-container">
-  <div class="grid-item">Verdict</div>
-  <div class="grid-item">Time</div>
-  <div class="grid-item">Memory</div>  
-  <div class="grid-item" id="ver">.</div>
-  <div class="grid-item" id="tim">.</div>
-  <div class="grid-item" id="mem">.</div>  
+  </div>
+  <nav class="nav-bar" id="myNavbar">
+    <span class="nav-bar__app-icon">CodeDrop</span>
+    <span class="nav-bar__nav-icons-cont">
+      {{#if user}}
+          <a href="/dashboard" class="nav-bar__nav-icon--clicked">New Code</a>
+          <a href="/mycodes" class="nav-bar__nav-icon">My Codes</a>
+          <a href="/logout" class="nav-bar__nav-icon" >Logout</a>
+      {{/if}}
+    </span>
+</nav>
+<div class="dashboard-cont">
+  <div class="editor-cont">
+    <div class="editor-preference">
+      <div class="editor-preference__theme-select">
+        <span class="editor-preference__label">Theme</span>
+        <select id="theme_s" >
+        <option value="solarized_dark">Solarized Dark</option>
+        <option value="twilight">Twilight</option>
+        <option value="terminal">Terminal</option>
+        <option value="chrome">Chrome</option>
+        <option value="clouds">Clouds</option>
+        <option value="clouds_midnight">Clouds Midnight</option>
+        <option value="cobalt">Cobalt</option>
+        <option value="crimson_editor">Crimson Editor</option>
+        <option value="dawn">Dawn</option>
+        <option value="eclipse">Eclipse</option>
+        <option value="idle_fingers">Idle Fingers</option>
+        <option value="kr_theme">Kr Theme</option>
+        <option value="merbivore">Merbivore</option>
+        <option value="merbivore_soft">Merbivore Soft</option>
+        <option value="mono_industrial">Mono Industrial</option>
+        <option value="monokai">Monokai</option>
+        <option value="pastel_on_dark">Pastel On Dark</option>
+        <option value="textmate">TextMate</option>
+        <option value="tomorrow">Tomorrow</option>
+        <option value="vibrant_ink">Vibrant Ink</option>
+        </select>
+      </div>
+      <div class="editor-preference__language-select">
+        <span class="editor-preference__label">Language</span>
+        <select id="lang_s">
+          <option value="C">C</option>
+          <option value="C++">C++</option>
+          <option value="Java">Java</option>
+          <option value="Python">Python</option>
+        </select>
+      </div>
+    </div>
+    <pre id="editor">//Start writing code from here.</pre>
+    <div class="editor-btn-cont">
+      <button class="editor-btn" onclick="post()">Run</button>
+    </div>
+  </div>
+  <div id="statusdiv">
+    <div class="io-cont">
+      <div class="io-header">Custom Input</div>
+      <textarea id="txtar">
+      </textarea>
+    </div>
+    <div class="io-cont">
+      <div class="io-header">Output</div>
+      <div class="output-cont">
+        <pre id="output"></pre>
+      </div>
+    </div>
+    <div class="grid-container-dashboard">
+      <div class="grid-item-dashboard grid-header-dashboard">Verdict</div>
+      <div class="grid-item-dashboard grid-header-dashboard">Time</div>
+      <div class="grid-item-dashboard grid-header-dashboard">Memory</div>  
+      <div class="grid-item-dashboard" id="ver">.</div>
+      <div class="grid-item-dashboard" id="tim">.</div>
+      <div class="grid-item-dashboard" id="mem">.</div>  
+    </div>
+  </div>
 </div>
-
-</div>
-<pre id="editor">
- //Start writing code from here.
-</pre>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 <script src="/src-noconflict/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
 <script src="/js/ace_config.js" type="text/javascript" charset="utf-8"></script>
 </body>
-</html>

@@ -10,7 +10,8 @@ router.use(function(req,res){
    	else
    	{
    		res.render('mycodes',{
-  	       strcodes:row
+			 strcodes : row,
+			 currentPage : 'mycodes' 
         });
    	}
    });  	
