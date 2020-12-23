@@ -8,26 +8,24 @@ Tools/Technologies: HTML , CSS , Javascript , jquery , AJAX , Node js , MySql.
 
 # Login Page
 
-![alt text](https://github.com/gauravgb21/CodeDrop/blob/master/screenshots/Screenshot%20(98).png)
+![alt text](https://github.com/gauravgb21/CodeDrop/blob/master/screenshots/Screenshot%20(182).png)
 
 # User Registration Page
 
-![alt text](https://github.com/gauravgb21/CodeDrop/blob/master/screenshots/Screenshot%20(99).png)
+![alt text](https://github.com/gauravgb21/CodeDrop/blob/master/screenshots/Screenshot%20(181).png)
 
-# User Dashboard
-
-![alt text](https://github.com/gauravgb21/CodeDrop/blob/master/screenshots/Screenshot%20(100).png)
+![alt text](https://github.com/gauravgb21/CodeDrop/blob/master/screenshots/Screenshot%20(183).png)
 
 # Coding Environment
 
-![alt text](https://github.com/gauravgb21/CodeDrop/blob/master/screenshots/Screenshot%20(101).png)
+![alt text](https://github.com/gauravgb21/CodeDrop/blob/master/screenshots/Screenshot%20(184).png)
 
 # Compilation History
 
-![alt text](https://github.com/gauravgb21/CodeDrop/blob/master/screenshots/Screenshot%20(102).png)
+![alt text](https://github.com/gauravgb21/CodeDrop/blob/master/screenshots/Screenshot%20(185).png)
 
 # Access Previous Codes
-![alt text](https://github.com/gauravgb21/CodeDrop/blob/master/screenshots/Screenshot%20(103).png)
+![alt text](https://github.com/gauravgb21/CodeDrop/blob/master/screenshots/Screenshot%20(186).png)
 
 # New features to be added
 Support for more languages , storage resource computation for a program.
